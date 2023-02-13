@@ -1,24 +1,65 @@
-mport React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import React from 'react';
+import {
+  View,
+  SafeAreaView,
+  StyleSheet,
+  Animated,
+  TouchableOpacity,
+  ScrollView,
+  Text,
+  Image,
+} from 'react-native';
+import CusButton from './src/Components/cusButton';
+import CusHeader from './src/Components/cusHeader';
+import CusTextInput from './src/Components/cusTextInput';
+import { colors } from './src/Utils/colors';
+import { Icon } from './src/Utils/icons/Icon';
 
-import Signup from './src/Config/Screens/signup';
-import Home from './src/Config/Screens/home';
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import CusHeader from './src/Config/Components/header';
-import {View, StyleSheet, Animated, TouchableOpacity, ScrollView} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import Signin from './src/Config/Screens/signin';
 
-export default function Signup () {
-    return(
-        <SafeAreaView>
-            <ScrollView>
-                <View>
-                    <Text>signup screen</Text>
+export default function App() {
+  return (
+    <SafeAreaView style={styles.main}>
+      <TouchableOpacity style={styles.backButton}>
+        <Icon type='ionIcons' name='md-chevron-back-circle' size={60} color={colors.inputLabel} />
+      </TouchableOpacity>
+      <CusHeader />
+      <ScrollView>
+        <Image
+          style={styles.titleImage}
+          source={require('./src/Utils/Images/Signup.png')}
+        />
+        <Text style={styles.text}>
+          Masukan No. Handphone Anda dan tunggu kode autentik dikirimkan
+        </Text>
+        <CusTextInput label="NISN" placeholder="Nomor NISN" fontSize={16} delOption= {true} iconColor= {colors.themeColorDark} />
+        <CusTextInput label="NISN" placeholder="Nomor NISN" fontSize={16} delOption= {true} iconColor= {colors.themeColorDark} />
 
-                </View>
-            </ScrollView>
-        </SafeAreaView>
-    )
+        <CusButton
+          title="KIRIM"
+          style={{ backgroundColor: colors.themeColorDark }}
+        />
+      </ScrollView>
+    </SafeAreaView>
+  );
 }
+
+const styles = StyleSheet.create({
+  main: {
+    width: '100%',
+    height: '100%',
+    padding: '5%',
+    backgroundColor: 'white',
+  },
+  backButton: {
+    marginBottom: 10,
+    // backgroundColor: 'green',
+  },
+  titleImage: {
+    marginBottom: 30,
+  },
+  text: {
+    fontSize: 16,
+    fontWeight: '500',
+    marginBottom: 3,
+  },
+});

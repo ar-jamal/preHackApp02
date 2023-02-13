@@ -1,13 +1,14 @@
-import {StyleSheet, View} from 'react-native';
-import {TouchableOpacity, Text, TextInput, Image} from 'react-native';
-import Icon from 'react-native-vector-icons/SimpleLineIcons';
-import colors from '../Utils/colors';
-import cusColors from '../Utils/colors';
+import { StyleSheet, View } from 'react-native';
+import { TouchableOpacity, Text, TextInput, Image } from 'react-native';
+import { colors } from '../Utils/colors';
+import { Icon } from '../Utils/icons/Icon'
+// import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 
 export default function CusTextInput({
   label,
   labelColor,
   delColor,
+  iconColor,
   marginLeft,
   fontSize,
   onChangeText,
@@ -15,12 +16,15 @@ export default function CusTextInput({
   onDelete,
   placeholder,
   keyboardType,
+  iconName,
+  type,
   delOption,
   delBackgroundColor,
 }) {
+  console.log(delOption)
   return (
-    <View style={{marginTop: 12}}>
-      <Text
+    <View style={{ marginTop: 12 }}>
+      {label && <Text
         style={{
           color: labelColor ?? colors.inputLabel,
           marginLeft: marginLeft,
@@ -28,30 +32,27 @@ export default function CusTextInput({
           fontSize: fontSize ?? 12,
         }}>
         {label}
-      </Text>
+      </Text>}
       <View style={styles.inputView}>
-        {/* <Image
-          style={styles.IconUser}
-          source={require('../Utils/Images/IconUser.jpeg')}
-        /> */}
-        <Icon style={styles.IconUser} name="user" size={25} color="black" />
-        <Icon style={styles.IconUser} name="login" size={25} color="black" />
+        <Icon style={styles.IconUser}
+          type={type ?? 'simpleLineIcons'}
+          name={iconName ?? "user"}
+          size={23}
+          color={iconColor ?? "black"} />
         <TextInput
           style={styles.input}
           onChangeText={onChangeText}
           value={value}
           placeholder={placeholder}
-          // keyboardType={keyboardType}
+        // keyboardType={keyboardType}
         />
-        {delOption && (
+        {!!delOption && (
           <TouchableOpacity style={styles.delView} onPress={onDelete}>
-            <Text
-              style={{
-                fontSize: fontSize ?? 16,
-                color: delColor ?? colors.inputLabel,
-              }}>
-              x
-            </Text>
+            <Icon
+              type='feather'
+              name='delete'
+              size={23}
+              color={delColor ?? 'black'} />
           </TouchableOpacity>
         )}
       </View>
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
   inputView: {
     flexDirection: 'row',
     width: '100%',
-    height: 45,
+    height: 50,
     padding: 7,
     alignItems: 'center',
     // justifyContent: 'space-evenly',
@@ -72,24 +73,14 @@ const styles = StyleSheet.create({
     backgroundColor: colors.inputBg,
   },
   IconUser: {
-    height: '90%',
-    aspectRatio: 1.8,
+    marginRight: 9,
     resizeMode: 'contain',
     // backgroundColor: 'green',
   },
   input: {
-    width: '80%',
+    width: '83%',
     padding: 5,
     // backgroundColor: 'yellow',
   },
-  delView: {
-    width: 23,
-    height: 23,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 15,
-    borderWidth: 1,
-    borderColor: colors.inputLabel,
-    // backgroundColor: 'darkred',
-  },
+
 });

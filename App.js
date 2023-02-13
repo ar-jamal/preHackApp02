@@ -12,32 +12,35 @@ import {
 import CusButton from './src/Components/cusButton';
 import CusHeader from './src/Components/cusHeader';
 import CusTextInput from './src/Components/cusTextInput';
-import colors from './src/Utils/colors';
+import { colors } from './src/Utils/colors';
+import { Icon } from './src/Utils/icons/Icon';
 
 
 export default function App() {
   return (
     <SafeAreaView style={styles.main}>
-      <TouchableOpacity style={styles.backButton}>
-        <Image
-          /* style= {styles.backButton} */ source={require('./src/Utils/Images/IconBack.png')}
-        />
-      </TouchableOpacity>
       <CusHeader headerRight={true} />
       <ScrollView>
         <Image
           style={styles.titleImage}
-          source={require('./src/Utils/Images/Signup.png')}
+          source={require('./src/Utils/Images/headerImage.png')}
         />
-        <Text style={styles.text}>
-          Masukan No. Handphone Anda dan tunggu kode autentik dikirimkan
-        </Text>
-        <CusTextInput label="NISN" placeholder="Nomor NISN" fontSize={16} />
-        <CusTextInput label="NISN" placeholder="Nomor NISN" fontSize={16} />
-        
+        <CusTextInput
+          placeholder="Masukkan Password"
+          fontSize={16}
+          type='feather'
+          iconName='lock'
+          delOption={true}
+          delColor={colors.themeColorDark} />
+        <TouchableOpacity>
+          <Text style={[styles.linkText]}>
+            Lupa password
+          </Text>
+        </TouchableOpacity>
+
         <CusButton
-          title="KIRIM"
-          style={{backgroundColor: colors.themeColorDark}}
+          title="MULAI BELAJAR"
+          style={{ backgroundColor: colors.themeColorDark }}
         />
       </ScrollView>
     </SafeAreaView>
@@ -52,15 +55,26 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   backButton: {
-    marginBottom: 20,
+    marginBottom: 10,
     // backgroundColor: 'green',
   },
   titleImage: {
+    width: '100%',
     marginBottom: 30,
   },
   text: {
     fontSize: 16,
     fontWeight: '500',
     marginBottom: 3,
+  },
+  linkText: {
+    fontSize: 15,
+    fontWeight: '400',
+    borderBottomWidth: 1.7,
+    // marginTop: 8,
+    alignSelf: 'flex-end',
+    color: 'black',
+    borderBottomColor: 'black',
+    // backgroundColor: 'yellow'
   },
 });

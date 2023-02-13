@@ -1,5 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Animated, TouchableOpacity, ScrollView, Image, } from 'react-native';
+import { colors } from '../Utils/colors';
+import { Icon } from '../Utils/icons/Icon';
 
 export default function CusHeader(props) {
     return (
@@ -10,10 +12,11 @@ export default function CusHeader(props) {
             </View>
             {props.headerRight && <View style={styles.headerRight} >
                 <TouchableOpacity>
-                    <Image style={styles.iconBell} source={require('../Utils/Images/IconBell.png')} />
+                    <Icon style= {styles.iconBell} /* type= 'fonAwesome' */ name= 'bell-o' size= {23} color= {colors.iconColor} />
                 </TouchableOpacity>
                 <TouchableOpacity>
-                    <Image style={styles.iconMenu} source={require('../Utils/Images/Menu.png')} />
+                    {/* <Image style={styles.iconMenu} source={require('../Utils/Images/Menu.png')} /> */}
+                    <Icon style= {styles.iconMenu} type= 'feather' name= 'menu' size= {23} color= {colors.iconColor} />
                 </TouchableOpacity>
             </View>}
         </View>
@@ -57,10 +60,10 @@ const styles = StyleSheet.create({
         // backgroundColor: 'yellow',
     },
     iconBell: {
-        width: '50%',
-        aspectRatio: 2,
+        paddingRight: 12,
         resizeMode: 'contain',
         marginHorizontal: 12,
+        // backgroundColor: 'green'
     }
 
 });
