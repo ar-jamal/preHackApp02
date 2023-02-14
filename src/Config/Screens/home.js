@@ -1,107 +1,116 @@
 import React from 'react';
 import {
-  ImageBackground,
-  Image,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
   View,
-  ImageBackgroundBase,
-} from 'react-native'
-import CusButton from './src/Components/cusButton';
-import colors from './src/Utils/colors';
+  SafeAreaView,
+  StyleSheet,
+  Animated,
+  TouchableOpacity,
+  ScrollView,
+  Text,
+  Image,
+} from 'react-native';
+import CusButton from '../../Components/cusButton';
+import CusHeader from '../../Components/cusHeader';
+import CusTextInput from '../../Components/cusTextInput';
+import { colors } from '../../Utils/colors';
+import { Icon } from '../../Utils/icons/Icon';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-export default function App() {
+import TopPick from './topPick';
+import IndoorPlants from './indoorPlants';
+import OutdoorPlants from './outdoorPlants';
+import Seeds from './seeds';
+import Plants from './plants';
 
+
+const TopTab = createMaterialTopTabNavigator();
+
+// const tabBarOptions = {
+//   indicatorStyle: { backgroundColor: 'blue' },
+//   backgroundColor: 'green',
+// };
+
+function TopTabNav() {
+  return (
+    <TopTab.Navigator
+      // tabBarOptions={tabBarOptions}
+      screenOptions={{
+        tabBarStyle: { backgroundColor: 'powderblue', height: "10%", minHeight: "2%" },
+        tabBarIndicatorStyle: {
+          backgroundColor: 'blue',
+        },
+      }}
+    >
+      {/* <CusHeader /> */}
+      <TopTab.Screen
+        options={{
+          backgroundColor: 'green',
+        }}
+        name="TopPick"
+        component={TopPick}
+      />
+      <TopTab.Screen name="Indoor" component={IndoorPlants} />
+      <TopTab.Screen name="Outdoor" component={OutdoorPlants} />
+      <TopTab.Screen name="seeds" component={Seeds} />
+      <TopTab.Screen name="Plants" component={Plants} />
+    </TopTab.Navigator>
+  );
+}
+
+
+export default function Home() {
   return (
     <SafeAreaView style={styles.main}>
-      <StatusBar
-        backgroundColor="white"
-      />
-      {/* <View style={styles.headingView}>
-        <Text style={styles.heading}>AWAL</Text>
-      </View> */}
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic">
-        <View style={styles.header}>
-          <Image style={styles.linesBg} source={require('./src/Utils/Images/Vector.png')} />
-          <View style={styles.logoView}>
-            <Image style={styles.logo} source={require('./src/Utils/Images/Logo.png')} />
-            <Image style={styles.textImage} source={require('./src/Utils/Images/Plantify.png')} />
-          </View>
-        </View>
-        <View style={styles.body}>
-          <Image source={require('./src/Utils/Images/GetReadyText.png')} />
-          <Text style={styles.text}>Jelajahi AiLearn untuk menambah kemampuanmu
-            dalam mengoperasikan Adobe Illustrator</Text>
-        </View>
-        <CusButton
-          title='MASUK'
-          style={{
-            width: '90%',
-            alignSelf: 'center',
-          }}
-        // onPress= {onPressHandler()}
-        />
+      <CusHeader headerRight={true} />
+      <TopTabNav />
+      <ScrollView>
+
       </ScrollView>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  // main: {
-  //   width: '100%',
-  //   height: '100%',
-  //   backgroundColor: 'yellow'
-  // },
-  header: {
+  main: {
     width: '100%',
-    height: '67%',
-    // flex: 2,
-    alignItems: 'center',
+    height: '100%',
+    paddingHorizontal: '5%',
+    backgroundColor: 'white',
+  },
+  backButton: {
+    marginBottom: 10,
+    // backgroundColor: 'green',
+  },
+  titleImage: {
+    width: '100%',
+    marginBottom: 30,
+  },
+  searchBarMain: {
+    // height: 50,
+    flexDirection: 'row',
     justifyContent: 'center',
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
-    borderBottomLeftRadius: 40,
-    borderBottomRightRadius: 40,
-    position: 'relative',
-    backgroundColor: /* "red" */ colors.themeColorDark,
+    alignItems: 'space-between',
+    // backgroundColor: "powderblue"
   },
-  linesBg: {
-    flex: 1,
-  },
-  logoView: {
-    width: '100%',
-    height: '70%',
-    position: 'absolute',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    // left: '10%',
-    // top: '20%',
-    // backgroundColor: "yellow"
-  },
-  logo: {
-    height: '75%',
-    // aspectRatio: 1,
-    resizeMode: "contain",
-    // backgroundColor: 'orange'
-  },
-  textImage: {
-    resizeMode: "contain",
-    // backgroundColor: 'red',
-  },
-  body: {
-    width: '100%',
-    // flex: 6,
-    paddingTop: '6%',
-    marginLeft: '8%',
-    justifyContent: 'space-between',
-    // backgroundColor: 'blue',
+  menu: {
+    height: '100%',
+    width: 46,
+    marginLeft: 14,
+    resizeMode: 'stretch',
   },
   text: {
     fontSize: 16,
-    marginTop: 12,
-  }
+    fontWeight: '500',
+    marginBottom: 3,
+  },
+  linkText: {
+    fontSize: 15,
+    fontWeight: '400',
+    borderBottomWidth: 1.7,
+    // marginTop: 8,
+    alignSelf: 'flex-end',
+    color: 'black',
+    borderBottomColor: 'black',
+    // backgroundColor: 'yellow'
+  },
 });

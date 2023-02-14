@@ -9,24 +9,37 @@ import {
   Text,
   Image,
 } from 'react-native';
-import CusButton from './src/Components/cusButton';
-import CusHeader from './src/Components/cusHeader';
-import CusTextInput from './src/Components/cusTextInput';
-import { colors } from './src/Utils/colors';
-import { Icon } from './src/Utils/icons/Icon';
+import CusButton from '../../Components/cusButton';
+import MenuBar from '../../Components/menuBar';
+import CusTextInput from '../../Components/cusTextInput';
+import { colors } from '../../Utils/colors';
+import { Icon } from '../../Utils/icons/Icon';
 
 
-export default function Signin() {
+export default function Signin({navigation}) {
+
+  const onBackPressHandler = () => {
+    navigation.goBack();
+  }
+  const onLinkPressHandler = () => {
+    navigation.navigate('Signup');
+  }
+  const onSubmitHandler = () => {
+    navigation.navigate('Signup');
+  }
   return (
     <SafeAreaView style={styles.main}>
-      <TouchableOpacity style={styles.backButton}>
-        <Icon type='ionIcons' name='md-chevron-back-circle' size={60} color={colors.inputLabel} />
+      <TouchableOpacity
+        style={styles.backButton}
+        onPress={onBackPressHandler}
+      >
+        <Icon type='ionIcons' name='md-chevron-back-circle' size={55} color={colors.inputLabel} />
       </TouchableOpacity>
-      <CusHeader />
+      <MenuBar />
       <ScrollView>
         <Image
           style={styles.titleImage}
-          source={require('./src/Utils/Images/Login.png')}
+          source={require('../../Utils/Images/Login.png')}
         />
         <Text style={styles.text}>
           Masukan NISN dan password untuk
@@ -40,21 +53,24 @@ export default function Signin() {
           iconName='lock'
           delOption={true}
           delColor={colors.themeColorDark} />
-        <CusTextInput 
-        label="Password" 
-        placeholder="Masukkan Password" 
-        fontSize={16}
-        type= 'feather'
-        iconName= 'lock' 
-        delOption={true} 
-        delColor={colors.themeColorDark} />
-        <TouchableOpacity>
+        <CusTextInput
+          label="Password"
+          placeholder="Masukkan Password"
+          fontSize={16}
+          type='feather'
+          iconName='lock'
+          delOption={true}
+          delColor={colors.themeColorDark} />
+        <TouchableOpacity
+        onPress={onLinkPressHandler}
+        >
           <Text style={[styles.linkText]}>
             Lupa password
           </Text>
         </TouchableOpacity>
 
         <CusButton
+        onPress={onSubmitHandler}
           title="MULAI BELAJAR"
           style={{ backgroundColor: colors.themeColorDark }}
         />
@@ -67,7 +83,7 @@ const styles = StyleSheet.create({
   main: {
     width: '100%',
     height: '100%',
-    padding: '5%',
+    paddingHorizontal: '5%',
     backgroundColor: 'white',
   },
   backButton: {

@@ -9,24 +9,36 @@ import {
   Text,
   Image,
 } from 'react-native';
-import CusButton from './src/Components/cusButton';
-import CusHeader from './src/Components/cusHeader';
-import CusTextInput from './src/Components/cusTextInput';
-import { colors } from './src/Utils/colors';
-import { Icon } from './src/Utils/icons/Icon';
+import CusButton from '../../Components/cusButton';
+import MenuBar from '../../Components/menuBar';
+import CusTextInput from '../../Components/cusTextInput';
+import { colors } from '../../Utils/colors';
+import { Icon } from '../../Utils/icons/Icon';
 
 
-export default function App() {
+export default function Signup({navigation}) {
+
+  const onBackPressHandler = () => {
+    navigation.goBack();
+  }
+
+  const onSubmitHandler = () => {
+    navigation.navigate('Home');
+  }
+
   return (
     <SafeAreaView style={styles.main}>
-      <TouchableOpacity style={styles.backButton}>
+      <TouchableOpacity 
+      style={styles.backButton}
+      onPress= {onBackPressHandler}
+      >
         <Icon type='ionIcons' name='md-chevron-back-circle' size={60} color={colors.inputLabel} />
       </TouchableOpacity>
-      <CusHeader />
+      <MenuBar />
       <ScrollView>
         <Image
           style={styles.titleImage}
-          source={require('./src/Utils/Images/Signup.png')}
+          source={require('../../Utils/Images/Signup.png')}
         />
         <Text style={styles.text}>
           Masukan No. Handphone Anda dan tunggu kode autentik dikirimkan
@@ -36,7 +48,8 @@ export default function App() {
 
         <CusButton
           title="KIRIM"
-          style={{ backgroundColor: colors.themeColorDark }}
+          onPress={onSubmitHandler}
+          // style={{ backgroundColor: colors.themeColorDark }}
         />
       </ScrollView>
     </SafeAreaView>
@@ -47,7 +60,7 @@ const styles = StyleSheet.create({
   main: {
     width: '100%',
     height: '100%',
-    padding: '5%',
+    paddingHorizontal: '5%',
     backgroundColor: 'white',
   },
   backButton: {

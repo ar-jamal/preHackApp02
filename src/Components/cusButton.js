@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {TouchableOpacity, Text} from 'react-native';
-import colors from '../Utils/colors';
+import {colors} from '../Utils/colors';
 // import cusColors from "../Utils/colors"
 
 export default function CusButton({title, onPress, style, styleChild, width}) {
@@ -13,7 +13,8 @@ export default function CusButton({title, onPress, style, styleChild, width}) {
 
 const styles = StyleSheet.create({
   button: {
-    height: '11%',
+    // height: '7%',
+    paddingVertical: 12,
     marginTop: 30,
     marginBottom: 35,
     fontSize: 18,
@@ -23,7 +24,7 @@ const styles = StyleSheet.create({
     marginTop: 50,
     // borderBottomLeftRadius: 20,
     // borderBottomWidth: 2,
-    backgroundColor: 'blue',
+    backgroundColor: colors.themeColorDark,
   },
   buttonText: {
     color: 'white',
