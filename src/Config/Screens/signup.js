@@ -23,7 +23,7 @@ export default function Signup({navigation}) {
   }
 
   const onSubmitHandler = () => {
-    navigation.navigate('Home');
+    navigation.navigate('TopTabNav');
   }
 
   return (

@@ -21,6 +21,7 @@ import IndoorPlants from './indoorPlants';
 import OutdoorPlants from './outdoorPlants';
 import Seeds from './seeds';
 import Plants from './plants';
+import { NavigationContainer } from '@react-navigation/native';
 
 
 const TopTab = createMaterialTopTabNavigator();
@@ -32,28 +33,32 @@ const TopTab = createMaterialTopTabNavigator();
 
 function TopTabNav() {
   return (
-    <TopTab.Navigator
-      // tabBarOptions={tabBarOptions}
-      screenOptions={{
-        tabBarStyle: { backgroundColor: 'powderblue', height: "10%", minHeight: "2%" },
-        tabBarIndicatorStyle: {
-          backgroundColor: 'blue',
-        },
-      }}
-    >
-      {/* <CusHeader /> */}
-      <TopTab.Screen
-        options={{
-          backgroundColor: 'green',
+    <NavigationContainer independent= {true} >
+      <TopTab.Navigator 
+        // tabBarOptions={tabBarOptions}
+        screenOptions={{
+          tabBarAllowFontScaling: true,
+          tabBarStyle: { backgroundColor: 'powderblue', height: "10%", minHeight: "2%", /* margin: '5%' */ },
+          tabBarIndicatorStyle: {
+            backgroundColor: 'blue',
+            margin: 20,
+          },
         }}
-        name="TopPick"
-        component={TopPick}
-      />
-      <TopTab.Screen name="Indoor" component={IndoorPlants} />
-      <TopTab.Screen name="Outdoor" component={OutdoorPlants} />
-      <TopTab.Screen name="seeds" component={Seeds} />
-      <TopTab.Screen name="Plants" component={Plants} />
-    </TopTab.Navigator>
+      >
+        {/* <CusHeader /> */}
+        <TopTab.Screen
+          options={{
+            backgroundColor: 'green',
+          }}
+          name="TopPick"
+          component={TopPick}
+        />
+        <TopTab.Screen  name="Indoor" component={IndoorPlants} />
+        <TopTab.Screen name="Outdoor" component={OutdoorPlants} />
+        <TopTab.Screen name="seeds" component={Seeds} />
+        <TopTab.Screen name="Plants" component={Plants} />
+      </TopTab.Navigator>
+    </NavigationContainer>
   );
 }
 

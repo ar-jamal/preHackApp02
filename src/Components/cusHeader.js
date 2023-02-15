@@ -47,7 +47,8 @@ export default function CusHeader() {
 const styles = StyleSheet.create({
   main: {
     width: '100%',
-    height: '100%',
+    // paddingHorizontal: '5%',
+    // height: '100%',
     backgroundColor: 'white',
   },
   backButton: {

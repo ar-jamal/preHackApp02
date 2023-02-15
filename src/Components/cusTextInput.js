@@ -26,9 +26,8 @@ export default function CusTextInput({
   inputStyle,
   iconStyle,
 }) {
-  console.log(delOption)
   return (
-    <View style={[ {marginTop: 12}, inputMainStyle ]}>
+    <View style={[{ marginTop: 12 }, inputMainStyle]}>
       {label && <Text
         style={{
           color: labelColor ?? colors.inputLabel,
@@ -49,17 +48,17 @@ export default function CusTextInput({
           onChangeText={onChangeText}
           value={value}
           placeholder={placeholder}
-          placeholderTextColor= 'black'
+          placeholderTextColor='black'
         // keyboardType={keyboardType}
         />
         {!!delOption && (
           <TouchableOpacity style={styles.delView} onPress={onDelete}>
             {delType && <Icon
-              type={delType?? 'feather'}
-              name={delIconName?? 'delete'}
+              type={delType ?? 'feather'}
+              name={delIconName ?? 'delete'}
               size={23}
-              color={delColor ?? 'black'} /> }
-              <Image style={styles.delImage} source= {delSource} />
+              color={delColor ?? 'black'} />}
+            <Image style={styles.delImage} source={delSource} />
           </TouchableOpacity>
         )}
       </View>
