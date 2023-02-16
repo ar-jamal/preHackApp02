@@ -21,40 +21,6 @@ const TopTab = createMaterialTopTabNavigator();
 
 const Stack = createNativeStackNavigator();
 
-// function TopTabNav() {
-//   return (
-//     <>
-//       <CusHeader />
-//       <NavigationContainer independent={true} >
-//         <TopTab.Navigator
-//           // tabBarOptions={tabBarOptions}
-//           screenOptions={{
-//             // headerShown: false,
-//             tabBarStyle: { backgroundColor: 'powderblue', height: "10%", minHeight: "2%" },
-//             tabBarIndicatorStyle: {
-//               backgroundColor: 'red',
-//             },
-//           }}
-//         >
-//           {/* <CusHeader /> */}
-//           <TopTab.Screen
-//             options={{
-//               backgroundColor: 'green',
-//             }}
-//             name="TopPick"
-//             component={TopPick}
-//           />
-//           <TopTab.Screen name="Indoor" component={IndoorPlants} />
-//           <TopTab.Screen name="Outdoor" component={OutdoorPlants} />
-//           <TopTab.Screen name="seeds" component={Seeds} />
-//           <TopTab.Screen name="Plants" component={Plants} />
-//         </TopTab.Navigator>
-//       </NavigationContainer>
-//     </>
-//   )
-// }
-
-
 export default function App() {
   return (
     <SafeAreaView style={styles.mainView}>

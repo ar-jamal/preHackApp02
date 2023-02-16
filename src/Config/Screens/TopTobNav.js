@@ -1,5 +1,6 @@
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { View, StyleSheet } from 'react-native';
+import { shadow } from 'react-native-paper';
 import CusHeader from '../../Components/cusHeader';
 import IndoorPlants from './indoorPlants';
 import OutdoorPlants from './outdoorPlants';
@@ -17,7 +18,7 @@ export default function TopTabNav() {
         screenOptions={{
           tabBarPressOpacity: 5,
           // headerShown: false,
-          tabBarStyle: { /* backgroundColor: 'powderblue', */ height: 50, minHeight: "2%", width: '100%', /* marginHorizontal: 40, */ },
+          tabBarStyle: { /* backgroundColor: 'powderblue', */ height: 45, minHeight: "2%", width: '100%', alignItems: 'center', /* marginHorizontal: 40, */ },
           tabBarIndicatorStyle: {
             backgroundColor: 'blue',
             // width: 30,
@@ -29,6 +30,7 @@ export default function TopTabNav() {
           tabBarLabelStyle: {
             textTransform: 'capitalize',
             fontSize: 14,
+            shadowColor: 'white'
           }
         }}
       >

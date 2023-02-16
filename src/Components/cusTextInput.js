@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
   inputView: {
     flexDirection: 'row',
     width: '100%',
-    height: 50,
+    height: 45,
     padding: 6,
     alignItems: 'center',
     // justifyContent: 'space-evenly',

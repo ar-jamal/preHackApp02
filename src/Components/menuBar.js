@@ -26,6 +26,7 @@ export default function MenuBar(props) {
 const styles = StyleSheet.create({
     headerView: {
         width: '100%',
+        // height: '12%',
         // paddingHorizontal: '2%',
         flexDirection: 'row',
         marginBottom: '2%',

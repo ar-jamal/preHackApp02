@@ -20,26 +20,24 @@ export default function CusHeader() {
   return (
     <SafeAreaView style={styles.main}>
       <MenuBar headerRight={true} />
-      <ScrollView>
-        <Image
-          style={styles.titleImage}
-          source={require('../Utils/Images/headerImage.png')}
+      <Image
+        style={styles.titleImage}
+        source={require('../Utils/Images/headerImage.png')}
+      />
+      <View style={styles.searchBarMain} >
+        <CusTextInput
+          inputMainStyle={{ flex: 8, marginTop: 0, /* backgroundColor: 'yellow', */ }}
+          inputStyle={{ borderRadius: 18, borderColor: 'black', marginTop: 0, }}
+          iconStyle={{ marginHorizontal: 15 }}
+          type='feather'
+          iconName='search'
+          placeholder="Search"
+          fontSize={16}
+          delSource={require('../Utils/Images/DelIcon.png')}
+          delOption={true}
         />
-        <View style={styles.searchBarMain} >
-          <CusTextInput
-            inputMainStyle={{ flex: 8, marginTop: 0, /* backgroundColor: 'yellow', */ }}
-            inputStyle={{ borderRadius: 18, borderColor: 'black', marginTop: 0, }}
-            iconStyle={{ marginHorizontal: 15 }}
-            type='feather'
-            iconName='search'
-            placeholder="Search"
-            fontSize={16}
-            delSource={require('../Utils/Images/DelIcon.png')}
-            delOption={true}
-          />
-          <Image style={styles.menu} source={require('../Utils/Images/Menu02.png')} />
-        </View>
-      </ScrollView>
+        <Image style={styles.menu} source={require('../Utils/Images/Menu02.png')} />
+      </View>
     </SafeAreaView>
   );
 }
@@ -47,20 +45,19 @@ export default function CusHeader() {
 const styles = StyleSheet.create({
   main: {
     width: '100%',
+    height: '50%',
     // paddingHorizontal: '5%',
     // height: '100%',
     backgroundColor: 'white',
   },
-  backButton: {
-    marginBottom: 10,
-    // backgroundColor: 'green',
-  },
   titleImage: {
     width: '100%',
-    marginBottom: 30,
+    // height: 180,
+    marginBottom: 15,
+    // resizeMode: 'contain',
   },
   searchBarMain: {
-    // height: 50,
+    height: 45,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'space-between',
