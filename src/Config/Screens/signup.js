@@ -1,38 +1,36 @@
 import React from 'react';
 import {
-  View,
-  SafeAreaView,
-  StyleSheet,
-  Animated,
-  TouchableOpacity,
-  ScrollView,
-  Text,
   Image,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
 } from 'react-native';
 import CusButton from '../../Components/cusButton';
-import MenuBar from '../../Components/menuBar';
 import CusTextInput from '../../Components/cusTextInput';
-import { colors } from '../../Utils/colors';
-import { Icon } from '../../Utils/icons/Icon';
-
+import MenuBar from '../../Components/menuBar';
+import {cusColors} from '../../Utils/colors';
+import {Icon} from '../../Utils/icons/Icon';
 
 export default function Signup({navigation}) {
-
   const onBackPressHandler = () => {
     navigation.goBack();
-  }
+  };
 
   const onSubmitHandler = () => {
-    navigation.navigate('TopTabNav');
-  }
+    navigation.navigate('BottomTabNav');
+  };
 
   return (
     <SafeAreaView style={styles.main}>
-      <TouchableOpacity 
-      style={styles.backButton}
-      onPress= {onBackPressHandler}
-      >
-        <Icon type='ionIcons' name='md-chevron-back-circle' size={60} color={colors.inputLabel} />
+      <TouchableOpacity style={styles.backButton} onPress={onBackPressHandler}>
+        <Icon
+          type="ionIcons"
+          name="md-chevron-back-circle"
+          size={60}
+          color={cusColors.inputLabel}
+        />
       </TouchableOpacity>
       <MenuBar />
       <ScrollView>
@@ -43,13 +41,25 @@ export default function Signup({navigation}) {
         <Text style={styles.text}>
           Masukan No. Handphone Anda dan tunggu kode autentik dikirimkan
         </Text>
-        <CusTextInput label="NISN" placeholder="Nomor NISN" fontSize={16} delOption= {true} iconColor= {colors.themeColorDark} />
-        <CusTextInput label="NISN" placeholder="Nomor NISN" fontSize={16} delOption= {true} iconColor= {colors.themeColorDark} />
+        <CusTextInput
+          label="NISN"
+          placeholder="Nomor NISN"
+          fontSize={16}
+          delOption={true}
+          iconColor={cusColors.themeColorDark}
+        />
+        <CusTextInput
+          label="NISN"
+          placeholder="Nomor NISN"
+          fontSize={16}
+          delOption={true}
+          iconColor={cusColors.themeColorDark}
+        />
 
         <CusButton
           title="KIRIM"
           onPress={onSubmitHandler}
-          // style={{ backgroundColor: colors.themeColorDark }}
+          // style={{ backgroundColor: cusColors.themeColorDark }}
         />
       </ScrollView>
     </SafeAreaView>

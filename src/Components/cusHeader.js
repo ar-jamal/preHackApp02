@@ -1,22 +1,13 @@
 import React from 'react';
 import {
-  View,
-  SafeAreaView,
-  StyleSheet,
-  Animated,
-  TouchableOpacity,
-  ScrollView,
-  Text,
-  Image,
+  Image, SafeAreaView,
+  StyleSheet, View
 } from 'react-native';
-import CusButton from './cusButton';
-import MenuBar from './menuBar';
 import CusTextInput from './cusTextInput';
-import { colors } from '../Utils/colors';
-import { Icon } from '../Utils/icons/Icon';
+import MenuBar from './menuBar';
 
-
-export default function CusHeader() {
+export default function CusHeader({onSearchPress, onChangeText, onDelete}) {
+  
   return (
     <SafeAreaView style={styles.main}>
       <MenuBar headerRight={true} />
@@ -24,19 +15,28 @@ export default function CusHeader() {
         style={styles.titleImage}
         source={require('../Utils/Images/headerImage.png')}
       />
-      <View style={styles.searchBarMain} >
+      <View style={styles.searchBarMain}>
         <CusTextInput
-          inputMainStyle={{ flex: 8, marginTop: 0, /* backgroundColor: 'yellow', */ }}
-          inputStyle={{ borderRadius: 18, borderColor: 'black', marginTop: 0, }}
-          iconStyle={{ marginHorizontal: 15 }}
-          type='feather'
-          iconName='search'
+          inputMainStyle={{
+            flex: 8,
+            marginTop: 0 /* backgroundColor: 'yellow', */,
+          }}
+          inputStyle={{borderRadius: 18, borderColor: 'black', marginTop: 0}}
+          iconStyle={{marginHorizontal: 15}}
+          type="feather"
+          iconName="search"
           placeholder="Search"
           fontSize={16}
           delSource={require('../Utils/Images/DelIcon.png')}
           delOption={true}
+          onSearchPress={onSearchPress}
+          onChangeText={onChangeText}
+          onDelete={onDelete}
         />
-        <Image style={styles.menu} source={require('../Utils/Images/Menu02.png')} />
+        <Image
+          style={styles.menu}
+          source={require('../Utils/Images/Menu02.png')}
+        />
       </View>
     </SafeAreaView>
   );
@@ -45,7 +45,7 @@ export default function CusHeader() {
 const styles = StyleSheet.create({
   main: {
     width: '100%',
-    height: '50%',
+    // height: '50%',
     // paddingHorizontal: '5%',
     // height: '100%',
     backgroundColor: 'white',

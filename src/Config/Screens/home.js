@@ -1,121 +1,63 @@
-import React from 'react';
-import {
-  View,
-  SafeAreaView,
-  StyleSheet,
-  Animated,
-  TouchableOpacity,
-  ScrollView,
-  Text,
-  Image,
-} from 'react-native';
-import CusButton from '../../Components/cusButton';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import {View, StyleSheet} from 'react-native';
 import CusHeader from '../../Components/cusHeader';
-import CusTextInput from '../../Components/cusTextInput';
-import { colors } from '../../Utils/colors';
-import { Icon } from '../../Utils/icons/Icon';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-
-import TopPick from './topPick';
-import IndoorPlants from './indoorPlants';
-import OutdoorPlants from './outdoorPlants';
-import Seeds from './seeds';
-import Plants from './plants';
-import { NavigationContainer } from '@react-navigation/native';
-
+import IndoorPlants from './ TopTabScreens/indoorPlants';
+import OutdoorPlants from './ TopTabScreens/outdoorPlants';
+import Plants from './ TopTabScreens/plants';
+import Seeds from './ TopTabScreens/seeds';
+import TopPick from './ TopTabScreens/topPick';
 
 const TopTab = createMaterialTopTabNavigator();
 
-// const tabBarOptions = {
-//   indicatorStyle: { backgroundColor: 'blue' },
-//   backgroundColor: 'green',
-// };
-
-function TopTabNav() {
+export default function Home() {
   return (
-    <NavigationContainer independent= {true} >
-      <TopTab.Navigator 
-        // tabBarOptions={tabBarOptions}
+    <View style={styles.mainView}>
+      {/* <CusHeader
+        // onSearchPress={onSearchPressHandler}ß
+        onChangeText={e => setInputText(e)}
+        onDelete={() => setInputText('')}
+      /> */}
+      <TopTab.Navigator
         screenOptions={{
-          tabBarAllowFontScaling: true,
-          tabBarStyle: { backgroundColor: 'powderblue', height: "10%", minHeight: "2%", /* margin: '5%' */ },
+          tabBarPressOpacity: 1,
+          // headerShown: false,
+          tabBarStyle: {
+            /* backgroundColor: 'powderblue', */ height: 45,
+            minHeight: '2%',
+            width: '100%',
+            alignItems: 'center' /* marginHorizontal: 40, */,
+          },
           tabBarIndicatorStyle: {
             backgroundColor: 'blue',
-            margin: 20,
           },
-        }}
-      >
-        {/* <CusHeader /> */}
-        <TopTab.Screen
-          options={{
-            backgroundColor: 'green',
-          }}
-          name="TopPick"
-          component={TopPick}
-        />
-        <TopTab.Screen  name="Indoor" component={IndoorPlants} />
+          tabBarScrollEnabled: true,
+          lazy: true,
+          tabBarLabelStyle: {
+            textTransform: 'capitalize',
+            fontSize: 14,
+            shadowColor: 'white',
+          },
+        }}>
+        <TopTab.Screen name="TopPick" component={TopPick} />
+        <TopTab.Screen name="Indoor" component={IndoorPlants} />
         <TopTab.Screen name="Outdoor" component={OutdoorPlants} />
         <TopTab.Screen name="seeds" component={Seeds} />
         <TopTab.Screen name="Plants" component={Plants} />
       </TopTab.Navigator>
-    </NavigationContainer>
-  );
-}
-
-
-export default function Home() {
-  return (
-    <SafeAreaView style={styles.main}>
-      <CusHeader headerRight={true} />
-      <TopTabNav />
-      <ScrollView>
-
-      </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  main: {
+  mainView: {
     width: '100%',
     height: '100%',
     paddingHorizontal: '5%',
     backgroundColor: 'white',
+    // justifyContent: 'flex-start'
   },
-  backButton: {
-    marginBottom: 10,
-    // backgroundColor: 'green',
-  },
-  titleImage: {
-    width: '100%',
-    marginBottom: 30,
-  },
-  searchBarMain: {
-    // height: 50,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'space-between',
-    // backgroundColor: "powderblue"
-  },
-  menu: {
-    height: '100%',
-    width: 46,
-    marginLeft: 14,
-    resizeMode: 'stretch',
-  },
-  text: {
-    fontSize: 16,
-    fontWeight: '500',
-    marginBottom: 3,
-  },
-  linkText: {
-    fontSize: 15,
-    fontWeight: '400',
-    borderBottomWidth: 1.7,
-    // marginTop: 8,
-    alignSelf: 'flex-end',
-    color: 'black',
-    borderBottomColor: 'black',
-    // backgroundColor: 'yellow'
+  botTab: {
+    height: 25,
+    backgroundColor: 'yellow',
   },
 });

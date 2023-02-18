@@ -1,19 +1,8 @@
 import React from 'react';
 import {
-  View,
   SafeAreaView,
-  StyleSheet,
-  Animated,
-  TouchableOpacity,
-  ScrollView,
-  Text,
-  Image,
+  StyleSheet, Text, View
 } from 'react-native';
-import CusButton from '../../Components/cusButton';
-import CusHeader from '../../Components/cusHeader';
-import CusTextInput from '../../Components/cusTextInput';
-import { colors } from '../../Utils/colors';
-import { Icon } from '../../Utils/icons/Icon';
 
 
 export default function Plants() {
