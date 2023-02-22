@@ -4,10 +4,10 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  View
+  View,
 } from 'react-native';
-import { cusColors } from '../Utils/colors';
-import { Icon } from '../Utils/icons/Icon';
+import {cusColors} from '../Utils/colors';
+import {Icon} from '../Utils/icons/Icon';
 // import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 
 export default function CusTextInput({
@@ -18,7 +18,7 @@ export default function CusTextInput({
   iconColor,
   marginLeft,
   fontSize,
-  onSearchPress,
+  onPress,
   onChangeText,
   value,
   onDelete,
@@ -33,15 +33,8 @@ export default function CusTextInput({
   inputStyle,
   iconStyle,
 }) {
-  // const onChangeText = val => {
-  //   setInputText(val);
-  // };
-
-  // const delHandler = ind => {
-  //   setInputText('');
-  // };
   return (
-    <View style={[{marginTop: 12}, inputMainStyle]}>
+    <View style={[{marginVertical: 12}, inputMainStyle]}>
       {label && (
         <Text
           style={{
@@ -54,9 +47,11 @@ export default function CusTextInput({
         </Text>
       )}
       <View style={[styles.inputView, inputStyle]}>
-        <TouchableOpacity onPress={onSearchPress}>
+        <TouchableOpacity
+          style={[styles.IconLeft, iconStyle]}
+          onPress={onPress}>
           <Icon
-            style={[styles.IconUser, iconStyle]}
+            // style={[styles.IconLeft, iconStyle]}
             type={type ?? 'simpleLineIcons'}
             name={iconName ?? 'user'}
             size={23}
@@ -65,7 +60,7 @@ export default function CusTextInput({
         </TouchableOpacity>
         <TextInput
           style={styles.input}
-          onChangeText={onChangeText}
+          onChange={onChangeText}
           value={value}
           placeholder={placeholder}
           placeholderTextColor="black"
@@ -95,16 +90,14 @@ const styles = StyleSheet.create({
     height: 45,
     padding: 6,
     alignItems: 'center',
-    // justifyContent: 'space-evenly',
-    marginTop: 5,
     borderWidth: 1,
     borderColor: cusColors.inputBorder,
-    backgroundColor: cusColors.inputBg,
+    // backgroundColor: 'blue',
   },
-  IconUser: {
+  IconLeft: {
     flex: 1,
     marginRight: 9,
-    resizeMode: 'contain',
+    alignItems: 'center',
     // backgroundColor: 'green',
   },
   input: {

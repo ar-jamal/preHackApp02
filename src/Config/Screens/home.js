@@ -1,6 +1,9 @@
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import {View, StyleSheet} from 'react-native';
+import {useState, useEffect} from 'react';
+import {View, StyleSheet, Image} from 'react-native';
 import CusHeader from '../../Components/cusHeader';
+import CusTextInput from '../../Components/cusTextInput';
+import {data} from '../../Utils/data';
 import IndoorPlants from './ TopTabScreens/indoorPlants';
 import OutdoorPlants from './ TopTabScreens/outdoorPlants';
 import Plants from './ TopTabScreens/plants';
@@ -12,29 +15,44 @@ const TopTab = createMaterialTopTabNavigator();
 export default function Home() {
   return (
     <View style={styles.mainView}>
-      {/* <CusHeader
-        // onSearchPress={onSearchPressHandler}ß
-        onChangeText={e => setInputText(e)}
-        onDelete={() => setInputText('')}
-      /> */}
+      <CusHeader />
+
       <TopTab.Navigator
         screenOptions={{
+          // tabBarContentContainerStyle: {
+          //   backgroundColor: 'yellow',
+          //   // height: 30,
+          // },
           tabBarPressOpacity: 1,
           // headerShown: false,
           tabBarStyle: {
-            /* backgroundColor: 'powderblue', */ height: 45,
-            minHeight: '2%',
+            // backgroundColor: 'powderblue',
+            height: 45,
+            minHeight: '2%', 
             width: '100%',
             alignItems: 'center' /* marginHorizontal: 40, */,
+            elevation: 0,
+            // width: 300,
+          },
+          tabBarItemStyle: {
+            width: 90,
+            // alignItems: 'flex-start',
+            // justifyContent: 'flex-start',
+            // borderLeftWidth: 1,
+            // height: 30,
           },
           tabBarIndicatorStyle: {
             backgroundColor: 'blue',
+            width: 30,
+            alignItems: 'center',
+            left: "5%",
           },
           tabBarScrollEnabled: true,
           lazy: true,
           tabBarLabelStyle: {
             textTransform: 'capitalize',
-            fontSize: 14,
+            fontSize: 13,
+            fontWeight: '400',
             shadowColor: 'white',
           },
         }}>
