@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react';
-import {Image, SafeAreaView, ScrollView, StyleSheet, View} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { Image, SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
 import CusTextInput from '../../../Components/cusTextInput';
 import CusSearch from '../../../Components/searchBar';
-import {data} from '../../../Utils/data';
+import { data } from '../../../Utils/data';
 
 export default function TopPick() {
   const [inputText, setInputText] = useState('');
@@ -10,9 +10,9 @@ export default function TopPick() {
 
   const onSearchPressHandler = () => {
     setFilterList([
-      ...data.filter(el =>
-        el.productCategory.includes(inputText.toLowerCase()),
-      ),
+      ...data.filter(el => (
+        el.productCategory.includes(inputText.toLowerCase())
+      ))
     ]);
     // console.log(filterList);
   };
@@ -37,8 +37,8 @@ export default function TopPick() {
             flex: 8,
             // marginTop: 0 /* backgroundColor: 'yellow', */,
           }}
-          inputStyle={{borderRadius: 18, borderColor: 'black', marginTop: 0}}
-          iconStyle={{marginHorizontal: 15}}
+          inputStyle={{ borderRadius: 18, borderColor: 'black', marginTop: 0 }}
+          iconStyle={{ marginHorizontal: 15 }}
           type="feather"
           iconName="search"
           placeholder="Search"
