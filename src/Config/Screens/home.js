@@ -4,11 +4,11 @@ import {View, StyleSheet, Image} from 'react-native';
 import CusHeader from '../../Components/cusHeader';
 import CusTextInput from '../../Components/cusTextInput';
 import {data} from '../../Utils/data';
-import IndoorPlants from './ TopTabScreens/indoorPlants';
-import OutdoorPlants from './ TopTabScreens/outdoorPlants';
-import Plants from './ TopTabScreens/plants';
-import Seeds from './ TopTabScreens/seeds';
-import TopPick from './ TopTabScreens/topPick';
+import IndoorPlants from './TopTabScreens/indoorPlants';
+import OutdoorPlants from './TopTabScreens/outdoorPlants';
+import Plants from './TopTabScreens/plants';
+import Seeds from './TopTabScreens/seeds';
+import TopPick from './TopTabScreens/topPick';
 
 const TopTab = createMaterialTopTabNavigator();
 
