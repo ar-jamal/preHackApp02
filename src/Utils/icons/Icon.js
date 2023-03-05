@@ -14,18 +14,18 @@ import {
   Fontisto,
   Octicons,
   Zocial,
-  SimpleLineIcons
+  SimpleLineIcons,
 } from './IconList';
-import { TouchableOpacity } from 'react-native';
+import {TouchableOpacity} from 'react-native';
 
-export const Icon = ({ type, ...props }) => {
+export const Icon = ({type, ...props}) => {
   switch (type) {
     case 'antDesign':
-      return  <AntDesign {...props} /> 
+      return <AntDesign {...props} />;
     case 'entypo':
-      return  <Entypo {...props} /> 
+      return <Entypo {...props} />;
     case 'evilIcons':
-      return  <EvilIcons {...props} /> 
+      return <EvilIcons {...props} />;
     case 'feather':
       return <Feather {...props} />;
     case 'fontAwesome5':
@@ -51,5 +51,5 @@ export const Icon = ({ type, ...props }) => {
     // case 'custom':f
     //   return <CustomIcon {...props} />;
   }
-  return <FontAwesome {...props} />;
+  return <EvilIcons name="question" {...props} />;
 };
