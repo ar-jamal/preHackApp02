@@ -51,5 +51,5 @@ export const Icon = ({type, ...props}) => {
     // case 'custom':f
     //   return <CustomIcon {...props} />;
   }
-  return <EvilIcons name="question" {...props} />;
+  return <FontAwesome {...props} />;
 };

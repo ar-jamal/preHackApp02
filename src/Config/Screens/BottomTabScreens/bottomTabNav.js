@@ -31,15 +31,21 @@ export default function BotTabNav() {
           options={{
             tabBarIcon: () => (
               <Icon type="antDesign" name="home" size={20} color="black" />
-            )
+            ),
+            tabBarColor: 'green',
           }}
         />
         <BotTab.Screen
           name="Favorites"
           component={Favorites}
           options={{
-            tabBarIcon: () => (
-              <Icon type="materialIcons" name="favorite-border" size={20} color="black" />
+            tabBarIcon: ({focused}) => (
+              <Icon
+                type="materialIcons"
+                name={focused ? 'favorite' : 'favorite-border'}
+                size={20}
+                color="black"
+              />
             ),
           }}
         />
@@ -47,8 +53,13 @@ export default function BotTabNav() {
           name="ShoppingCart"
           component={ShoppingCart}
           options={{
-            tabBarIcon: () => (
-              <Icon type="fontIsto" name="shopping-bag" size={20} color="black" />
+            tabBarIcon: ({focused}) => (
+              <Icon
+                type="materialCommunityIcons"
+                name={focused ? 'shopping' : 'shopping-outline'}
+                size={20}
+                color="black"
+              />
             ),
           }}
         />
