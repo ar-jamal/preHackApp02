@@ -15,22 +15,21 @@ const BTab = createBottomTabNavigator();
 export default function BotTabNav() {
   return (
     <View style={styles.mainView}>
-      <BTab.Navigator
-        
+      <BotTab.Navigator
+        labeled={false}
+        barStyle={{
+          height: 65,
+          position: 'absolute',
+          overflow: 'hidden',
+          borderTopLeftRadius: 30,
+          borderTopRightRadius: 30,
+          backgroundColor: 'green',
+        }}
         // shifting= {true}
         screenOptions={{
-          tabBarShowLabel: false,
-          tabBarColor: 'black',
-          tabBarStyle: {
-            // height: 65,
-            position: 'absolute',
-            // overflow: 'hidden',
-            borderTopLeftRadius: 30,
-            borderTopRightRadius: 30,
-            backgroundColor: 'green',
-          }
+          tabBarColor: 'black'
         }}>
-        <BTab.Screen
+        <BotTab.Screen
           name="Home"
           component={Home}
           options={{
@@ -40,7 +39,7 @@ export default function BotTabNav() {
             tabBarColor: 'green',
           }}
         />
-        <BTab.Screen
+        <BotTab.Screen
           name="Favorites"
           component={Favorites}
           options={{
@@ -54,7 +53,7 @@ export default function BotTabNav() {
             ),
           }}
         />
-        <BTab.Screen
+        <BotTab.Screen
           name="ShoppingCart"
           component={ShoppingCart}
           options={{
@@ -68,7 +67,7 @@ export default function BotTabNav() {
             ),
           }}
         />
-        <BTab.Screen
+        <BotTab.Screen
           name="Profile"
           component={Profile}
           options={{
@@ -77,7 +76,7 @@ export default function BotTabNav() {
             ),
           }}
         />
-      </BTab.Navigator>
+      </BotTab.Navigator>
     </View>
   );
 }
